@@ -61,3 +61,65 @@ AttributeError: module 'numpy' has no attribute 'bool'.
 `np.bool` was a deprecated alias for the builtin `bool`. To avoid this error in existing code, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
 The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
     https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+
+================
+Solution Attempt:
+================
+ 
+ conda create -n conda-env python=3.8 -y
+conda activate conda-env
+(conda-env) python -m pip install -e .
+ 
+ python -m pip uninstall numpy
+ python -m pip install numpy==1.23.5
+ ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+layoutparser 0.3.4 requires iopath, which is not installed.
+fvcore 0.1.5.post20221221 requires iopath>=0.1.7, which is not installed.
+ 
+ python -m pip install iopath==0.1.7
+ python -m pip install layoutparser==0.3.4 fvcore==0.1.5.post20221221
+
+================
+Error Message:
+================
+ C:\Projects\anaconda3\envs\unstructured\lib\site-packages\pkg_resources\__init__.py:121: DeprecationWarning: pkg_resources is deprecated as an API
+  warnings.warn("pkg_resources is deprecated as an API", DeprecationWarning)
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\pkg_resources\__init__.py:2870: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('google')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\pkg_resources\__init__.py:2870: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\morphology\_skeletonize.py:241: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  0, 1, 1, 0, 0, 1, 0, 0, 0], dtype=np.bool)
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\morphology\_skeletonize.py:256: DeprecationWarning: `np.bool` is a deprecated alias for the builtin `bool`. To silence this warning, use `bool` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.bool_` here.
+Deprecated in NumPy 1.20; for more details and guidance: https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations
+  0, 0, 0, 0, 0, 0, 0, 0, 0], dtype=np.bool)
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\restoration\inpaint.py:6: DeprecationWarning: Please use `laplace` from the `scipy.ndimage` namespace, the `scipy.ndimage.filters` namespace is deprecated.
+  from scipy.ndimage.filters import laplace
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\feature\_orb_descriptor_positions.py:8: DeprecationWarning: loadtxt(): Parsing an integer via a float is deprecated.  To avoid this warning, you can:
+    * make sure the original data is stored as integers.
+    * use the `converters=` keyword argument.  If you only use
+      NumPy 1.23 or later, `converters=float` will normally work.
+    * Use `np.loadtxt(...).astype(np.int64)` parsing the file as
+      floating point and then convert it.  (On all NumPy versions.)
+  (Deprecated NumPy 1.23)
+  POS = np.loadtxt(os.path.join(this_dir, "orb_descriptor_positions.txt"),
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\filters\_unsharp_mask.py:2: DeprecationWarning: Please use `gaussian_filter` from the `scipy.ndimage` namespace, the `scipy.ndimage.filters` namespace is deprecated.
+  from scipy.ndimage.filters import gaussian_filter
+C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\segmentation\random_walker_segmentation.py:49: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  if Version(scipy.__version__) >= Version('1.1'):
+[2023/06/14 10:04:35] ppocr WARNING: Since the angle classifier is not initialized, the angle classifier will not be uesd during the forward process
+ 
+ New Python Script Changes:
+import numpy as np
+from PIL import Image
+from paddleocr import PaddleOCR
+
+filename = r"C:\Users\Jeremy Luo\source\repos\unstructured\jpgparsepicture.jpg"
+img = np.array(Image.open(filename))
+ocr = PaddleOCR(lang="en", use_gpu=False, use_angle_cls=True, show_log=False)
+result = ocr.ocr(img=img)
+
+
