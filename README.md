@@ -1,3 +1,26 @@
+Installation with ``conda`` on Windows
+--------------------------------------
+
+You can install and run ``unstructured`` on Windows with ``conda``, but the process
+involves a few extra steps. This section will help you get up and running.
+
+* Install `Anaconda <https://docs.conda.io/projects/conda/en/latest/user-guide/install/windows.html>`_ on your Windows machine.
+* Install Microsoft C++ Build Tools using the instructions in `this Stackoverflow post <https://stackoverflow.com/questions/64261546/how-to-solve-error-microsoft-visual-c-14-0-or-greater-is-required-when-inst>`_. C++ build tools are required for the ``pycocotools`` dependency.
+* Run ``conda env create -f environment.yml`` using the ``environment.yml`` file in the ``unstructured`` repo to create a virtual environment. The environment will be named ``unstructured``.
+* Run ``conda activate unstructured`` to activate the virtualenvironment.
+* Run ``pip install unstructured`` to install the ``unstructured`` library.
+
+===============================================
+Setting up ``unstructured`` for local inference
+===============================================
+
+If you need to run model inferences locally, there are a few additional steps you need to
+take. The main challenge is installing ``detectron2`` for PDF layout parsing. ``detectron2``
+does not officially support Windows, but it is possible to get it to install on Windows.
+The installation instructions are based on the instructions LayoutParser provides
+`here <https://layout-parser.github.io/tutorials/installation#for-windows-users>`_.
+
+
 # Unstructured
 Document Parsing
 Installation Steps
