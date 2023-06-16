@@ -124,8 +124,9 @@ loader = UnstructuredFileLoader("jpgparsepicture2.jpg")
 docs = loader.load()
 print(docs[0].page_content[:200])
  
- unzip Poppler https://blog.alivate.com.au/poppler-windows/ and tesseract https://github.com/UB-Mannheim/tesseract/wiki
- add both to PATH using the correct path
+ unzip Poppler https://blog.alivate.com.au/poppler-windows/  (extract files and make sure it is under "unstructured")
+ tesseract https://github.com/UB-Mannheim/tesseract/wiki
+ add POPPLER BIN and Tesseract to PATH using the correct path
  
  pip install tesseract
  pip install pytesseract
