@@ -112,14 +112,36 @@ C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\segmentation\r
   if Version(scipy.__version__) >= Version('1.1'):
 [2023/06/14 10:04:35] ppocr WARNING: Since the angle classifier is not initialized, the angle classifier will not be uesd during the forward process
  
- New Python Script Changes:
-import numpy as np
-from PIL import Image
-from paddleocr import PaddleOCR
+==========================
+New Python Script Changes:
+==========================
 
-filename = r"C:\Users\Jeremy Luo\source\repos\unstructured\jpgparsepicture.jpg"
-img = np.array(Image.open(filename))
-ocr = PaddleOCR(lang="en", use_gpu=False, use_angle_cls=True, show_log=False)
-result = ocr.ocr(img=img)
+ from langchain.document_loaders import UnstructuredFileLoader
+from langchain.document_loaders import UnstructuredURLLoader
 
+loader = UnstructuredFileLoader("jpgparsepicture2.jpg")
+
+docs = loader.load()
+print(docs[0].page_content[:200])
+ 
+ unzip Poppler https://blog.alivate.com.au/poppler-windows/ and tesseract https://github.com/UB-Mannheim/tesseract/wiki
+ add both to PATH using the correct path
+ 
+ pip install tesseract
+ pip install pytesseract
+ pip install langchain
+ pip list (make sure langchain is there)
+
+ If an error like this occurs: " Attempting uninstall: PyYAML
+    Found existing installation: PyYAML 5.3.1
+ERROR: Cannot uninstall 'PyYAML'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.\"
+ Then:
+ Force Reinstallation: You can try to force the reinstallation of the PyYAML package, which might resolve any conflicts. In your terminal or command prompt, use the following command:
+ "pip install --ignore-installed PyYAML"
+ This command will reinstall PyYAML and ignore the existing installation.
+ 
+ Try again, "python < enter python script file >"
+ 
+ 
+ 
 
