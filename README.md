@@ -166,6 +166,44 @@ ERROR: Cannot uninstall 'PyYAML'. It is a distutils installed project and thus w
  
  Try again, "python < enter python script file >"
  
- 
+ =============
+ .py to .exe:
+ =============
+(unstructured) C:\Users\Jeremy Luo\source\repos\unstructured>worddocparse.exe
+Traceback (most recent call last):
+  File "worddocparse.py", line 1, in <module>
+    from unstructured.partition.auto import partition
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 385, in exec_module
+  File "unstructured\partition\auto.py", line 15, in <module>
+    from unstructured.partition.doc import partition_doc
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 385, in exec_module
+  File "unstructured\partition\doc.py", line 8, in <module>
+    from unstructured.partition.docx import partition_docx
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 385, in exec_module
+  File "unstructured\partition\docx.py", line 29, in <module>
+    from unstructured.partition.text_type import (
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 385, in exec_module
+  File "unstructured\partition\text_type.py", line 14, in <module>
+    from unstructured.nlp.english_words import ENGLISH_WORDS
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller\loader\pyimod02_importers.py", line 385, in exec_module
+  File "unstructured\nlp\english_words.py", line 12, in <module>
+    with open(ENGLISH_WORDS_FILE) as f:
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Jeremy Luo\\AppData\\Local\\Temp\\_MEI196722\\unstructured\\nlp\\english-words.txt'
+[10120] Failed to execute script 'worddocparse' due to unhandled exception!
  
 
