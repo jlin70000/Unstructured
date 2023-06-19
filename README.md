@@ -93,14 +93,14 @@ Solution Attempt:
 conda activate conda-env
 (conda-env) python -m pip install -e .
  
- python -m pip uninstall numpy
- python -m pip install numpy==1.23.5
+ "python -m pip uninstall numpy"
+ "python -m pip install numpy==1.23.5"
  ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
 layoutparser 0.3.4 requires iopath, which is not installed.
 fvcore 0.1.5.post20221221 requires iopath>=0.1.7, which is not installed.
  
- python -m pip install iopath==0.1.7
- python -m pip install layoutparser==0.3.4 fvcore==0.1.5.post20221221
+ "python -m pip install iopath==0.1.7"
+ "python -m pip install layoutparser==0.3.4 fvcore==0.1.5.post20221221"
 
 ================
 Error Message:
@@ -138,28 +138,36 @@ C:\Projects\anaconda3\envs\unstructured\lib\site-packages\skimage\segmentation\r
 ==========================
 New Python Script Changes:
 ==========================
+.. code:: python
 
- from langchain.document_loaders import UnstructuredFileLoader
-from langchain.document_loaders import UnstructuredURLLoader
+       from langchain.document_loaders import UnstructuredFileLoader
+       from langchain.document_loaders import UnstructuredURLLoader
 
-loader = UnstructuredFileLoader("jpgparsepicture2.jpg")
+       loader = UnstructuredFileLoader("jpgparsepicture2.jpg")
 
-docs = loader.load()
-print(docs[0].page_content[:200])
- 
+       docs = loader.load()
+       print(docs[0].page_content[:200])
+
+=================================
+Installing Poppler and Tesseract:
+=================================
+
  unzip Poppler https://blog.alivate.com.au/poppler-windows/  (extract files and make sure it is under "unstructured")
  tesseract https://github.com/UB-Mannheim/tesseract/wiki
  add POPPLER BIN and Tesseract to PATH using the correct path
  
- pip install tesseract
- pip install pytesseract
- pip install langchain
- pip list (make sure langchain is there)
+ "pip install tesseract"
+ "pip install pytesseract"
+ "pip install langchain"
+ "pip list" (make sure langchain is there)
 
- If an error like this occurs: " Attempting uninstall: PyYAML
+ If an error like this occurs: 
+ " Attempting uninstall: PyYAML
     Found existing installation: PyYAML 5.3.1
 ERROR: Cannot uninstall 'PyYAML'. It is a distutils installed project and thus we cannot accurately determine which files belong to it which would lead to only a partial uninstall.\"
+
  Then:
+ 
  Force Reinstallation: You can try to force the reinstallation of the PyYAML package, which might resolve any conflicts. In your terminal or command prompt, use the following command:
  "pip install --ignore-installed PyYAML"
  This command will reinstall PyYAML and ignore the existing installation.
@@ -169,6 +177,11 @@ ERROR: Cannot uninstall 'PyYAML'. It is a distutils installed project and thus w
  =============
  .py to .exe:
  =============
+"< enter .exe file >" in your terminal
+
+================
+Error Message:
+================
 (unstructured) C:\Users\Jeremy Luo\source\repos\unstructured>worddocparse.exe
 Traceback (most recent call last):
   File "worddocparse.py", line 1, in <module>
