@@ -177,6 +177,10 @@ ERROR: Cannot uninstall 'PyYAML'. It is a distutils installed project and thus w
  =============
  .py to .exe:
  =============
+
+ "pip install auto-py-to-exe"
+ "auto-py-to-exe"
+ 
 "< enter .exe file >" in your terminal
 
 ================
