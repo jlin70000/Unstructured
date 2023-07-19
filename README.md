@@ -222,5 +222,9 @@ Traceback (most recent call last):
     with open(ENGLISH_WORDS_FILE) as f:
 FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Jeremy Luo\\AppData\\Local\\Temp\\_MEI196722\\unstructured\\nlp\\english-words.txt'
 [10120] Failed to execute script 'worddocparse' due to unhandled exception!
- 
+
+ ================
+ Reduce the Size:
+ ================
+"pyinstaller --onefile --exclude-module pytesseract worddocparse.py"
 
