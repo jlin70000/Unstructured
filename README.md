@@ -20,6 +20,10 @@ does not officially support Windows, but it is possible to get it to install on 
 The installation instructions are based on the instructions LayoutParser provides
 `here <https://layout-parser.github.io/tutorials/installation#for-windows-users>`_.
 
+.. code:: python
+	from unstructured.partition.pdf import partition_pdf
+	partition_pdf("example-docs/layout-parser-paper-fast.pdf", url=None)
+
 
 # Unstructured
 Document Parsing
