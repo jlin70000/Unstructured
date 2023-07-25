@@ -34,7 +34,16 @@ First, run ``git clone https://github.com/facebookresearch/iopath --single-branc
 Then on line 753 in ``iopath/iopath/common/file_io.py`` change ``filename = path.split("/")[-1]`` to ``filename = parsed_url.path.split("/")[-1]``. 
 After that, navigate to the ``iopath`` directory and run ``pip install -e .``.
 * Run ``pip install unstructured[local-inference]``.
-* 
+
+* from unstructured.partition.auto import partition
+
+import sys, os
+
+application_path = os.path.dirname(sys.executable)
+elements = partition(filename=r"C:\Users\Jeremy Luo\Downloads\Ibn Arabi definitions.docx")
+print("\n\n".join([str(el) for el in elements]))
+
+
 ====================
 Installing PaddleOCR
 ====================
